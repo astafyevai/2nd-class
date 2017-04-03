@@ -1,3 +1,29 @@
 ﻿03/04/17
 AJAX
-API - специальный вход для роботов, создан для других сайтов (например, авторизация через социальную сеть)
+API - специальный вход для разработчиков, создан для других сайтов (например, авторизация через социальную сеть)    
+https://github.com/elmiram/2016learnpython/blob/master/VK%20API%20%D0%A7%D0%B0%D1%81%D1%82%D1%8C%201.ipynb
+
+html = response.read().decode('utf-8'); decode - указываем, как раскодировать набор байтов в символы.
+
+ПРО КОНТАКТИК
+ДОКУМЕНТАЦИЯ https://vk.com/dev/openapi
+https://api.vk.com/method/wall.get(?owner_id=1) - стена-получить (определенная страница)
+
+http://example.com/page.php?param1=12&param2=abc; после знака вопроса - имя параметра = значение & имя параметра 2 = значение
+например: owner1 = id1&count = 2 - с id1 получить 2 записи 
+ПОЛУЧАЕМ ПИТОНОВСКИЙ СЛОВАРЬ С НЕПОНЯТНЫМИ ШТУКАМИ, ЭТО ХО-РО-ШО, но тип - str :(
+=> json
+import json
+data = json.loads (result)
+print (type (data))
+>> <class 'dict'> #ура!
+
+ДОСТАТЬ ТЕКСТ
+print (data ['response'][1]['text']) - из первой записи. Можно даже получать комментарии! (только нужно сказать, с чьей стены + номер этого поста)
+
+ПОЛУЧИТЬ КОММЕНТАРИИ https://vk.com/dev/wall.getComments
+import urllib.request  # импортируем модуль
+#req = urllib.request.Request ('https://api.vk.com/method/wall.getComments?owner_id=-iruusyaa&count=10') # посылаем запрос
+req = urllib.request.Request ('https://api.vk.com/method/wall.getComments?owner_id=-57179635&post_id=9&count=1')
+response = urllib.request.urlopen(req)comments = response.read().decode('utf-8')
+print (comments)
