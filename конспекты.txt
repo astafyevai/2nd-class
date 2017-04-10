@@ -23,7 +23,41 @@ print (data ['response'][1]['text']) - из первой записи. Можн�
 
 ПОЛУЧИТЬ КОММЕНТАРИИ https://vk.com/dev/wall.getComments
 import urllib.request  # импортируем модуль
-#req = urllib.request.Request ('https://api.vk.com/method/wall.getComments?owner_id=-iruusyaa&count=10') # посылаем запрос
-req = urllib.request.Request ('https://api.vk.com/method/wall.getComments?owner_id=-57179635&post_id=9&count=1')
-response = urllib.request.urlopen(req)comments = response.read().decode('utf-8')
+#req = urllib.request.Request ('https://api.vk.com/method/wall.getComments?owner_id=iruusyaa&count=10') # посылаем запрос
+req = urllib.request.Request ('https://api.vk.com/method/wall.getComments?owner_id=57179635&post_id=9&count=1')
+response = urllib.request.urlopen(req)
+comments = response.read().decode('utf-8')
 print (comments)
+
+#у сообщества отрицательный ид
+
+
+10/04/17
+https://github.com/elmiram/2016learnpython/blob/master/Matplotlib.ipynb
+import matplotlib.pyplot as plt
+x = [1, 3, 15]
+y = [1, 5, 20]
+
+plt.plot (x, y) #соединяет маленькое кол-во точек линией
+plt.show ()
+#plt.savefig ('plot.png', format = 'png')
+
+plt.scatter (x, y) - объединяет точки в области
+plt.title ('Graph') - способ подписать график (заголовок), по умолчанию подпись сверху
+
+plt.xlabel ('ось х')
+plt.ylabel ('ось у')
+plt.show ()
+
+plt.scatter (x, y, c = 'red', marker = '^', s = 60) - создаём объект с разными параметрами, параметры необязательные (именованые) -> в заранее неизвестном параметре, c - минорный параметр
+^ - треугольная точка (круглая по умолчанию)
+s - размер точки, с - цвет точки
+
+y = [60, 80. 70, 90]
+plt.scatter (y)
+______________________________________________________________________________________________________
+
+from matplotlib import style
+style.use ('ggplot')
+plt.plot (x, y)
+plt.plot (x2, y2) #сеточка
